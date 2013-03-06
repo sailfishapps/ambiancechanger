@@ -91,7 +91,8 @@ Page {
                 anchors.top: preview.bottom; anchors.left: parent.left; anchors.right: parent.right
                 wrapMode: Text.WordWrap
                 text: qsTr("Warning ! This operation might damage your SDK. It will remove \
-definitively the Sailfish background, and reboot the simulator.")
+definitively the Sailfish background, and restart the display. You will experience some flickering \
+before being taken back to the lockscreen.")
             }
 
             onAccepted: {

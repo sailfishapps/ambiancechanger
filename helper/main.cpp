@@ -17,7 +17,8 @@ int main(int argc, char **argv)
         qDebug() << "Pong !";
         return 0;
     } else if (firstArg == "--reboot") {
-        QProcess::execute("reboot");
+        QProcess::startDetached("systemctl isolate graphical.target");
+//        QProcess::execute("reboot");
     } else if (firstArg == "--setbg") {
         QString secondArg = app.arguments().at(2);
         QDir themeDir = QDir("/usr/share/themes/jolla-ambient/meegotouch/images/");
