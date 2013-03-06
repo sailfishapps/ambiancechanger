@@ -1,0 +1,31 @@
+=== Ambiance changer README ===
+
+== Setting up ambiance changer ==
+
+Ambiance changer requires access to root files. In order to do that, sudo should
+be installed. You can install sudo by opening a root shell in the simulator and
+entering:
+
+zypper install sudo
+
+After that, you will need some specific rules to launch the ambiance changer helper
+tool with root rights. In order to make it works, this helper must be able to be 
+launched by the app without password. Entering the following in a root shell 
+is enough:
+
+echo "nemo ALL= NOPASSWD:/opt/sdk/bin/ambiancechanger-helper" > /etc/sudoers.d/ambiancechanger-helper
+
+If the application complains about test not being passed, please double check if
+you have met all the previous requirements.
+
+== Using ambiance changer ==
+
+Ambiance changer is rather a dirty hack and not a beautiful application. It changes
+the default background file located in /usr/share/themes/jolla-ambient/meegotouch/images/,
+remove configuration keys in gconf (/desktop/jolla/background/portrait/home_picture_filename
+and /desktop/jolla/background/portrait/app_picture_filename) and restart X in order to tell
+lipstick to regenerate a new ambiance.
+
+The application should be pretty straightforward to use. Select the image you want to use 
+as an ambiance, and accept the dialog being shown. You should load more images in 
+/home/nemo/Pictures via SCP.

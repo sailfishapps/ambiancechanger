@@ -121,6 +121,7 @@ Page {
                      || testHelper.helperTest == TestHelper.Failure
                      || testHelper.sudoHelperLaunchTest == TestHelper.Failure
             wrapMode: Text.WordWrap
+            font.pixelSize: theme.fontSizeExtraSmall
             text: {
                 if (testHelper.sudoTest == TestHelper.Failure) {
                     qsTr("Please install sudo. SSH into the virtual machine, log as root, \
@@ -129,8 +130,9 @@ and do \"zypper install sudo\"")
                     qsTr("Please check your installation again. The helper could not be found")
                 } else if (testHelper.sudoHelperLaunchTest == TestHelper.Failure) {
                     qsTr("Please add a specific sudo rule for the helper, like\n\n\
-nemo ALL= NOPASSWD:/opt/sdk/bin/ambiancechanger-helper\n\nBe careful, you have to enable \
-NOPASSWD, and it is recommanded to put additional rules in /etc/sudoers.d")
+nemo ALL= NOPASSWD:/opt/sdk/bin/ambiancechanger-helper\n\nor in the provided README file. \
+Be careful, you have to enable NOPASSWD, and it is recommanded to put additional rules in \
+/etc/sudoers.d")
                 } else {
                     ""
                 }
