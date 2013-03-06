@@ -11,6 +11,10 @@ static const char *WALLPAPER_NAME = "wallpaper.jpg";
 int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
+    if (app.arguments().count() < 2) {
+        qDebug() << "Wrong number of arguments";
+        return 1;
+    }
 
     QString firstArg = app.arguments().at(1);
     if (firstArg == "--ping") {
@@ -20,6 +24,10 @@ int main(int argc, char **argv)
         QProcess::startDetached("systemctl isolate graphical.target");
 //        QProcess::execute("reboot");
     } else if (firstArg == "--setbg") {
+        if (app.arguments().count() < 3) {
+            qDebug() << "Wrong number of arguments";
+            return 1;
+        }
         QString secondArg = app.arguments().at(2);
         QDir themeDir = QDir("/usr/share/themes/jolla-ambient/meegotouch/images/");
         if (themeDir.exists(WALLPAPER_NAME)) {
