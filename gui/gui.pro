@@ -23,6 +23,7 @@ target.path = $${BINDIR}
 
 qml.path = $${SHAREDIR}
 qml.files = $${OTHER_FILES}
+desktop.files = ambiancechanger.desktop
 desktop.path = $${APPLICATIONSDIR}
 
 contains(CONFIG, desktop) {
@@ -30,7 +31,8 @@ contains(CONFIG, desktop) {
     QT += opengl
 }
 
-INSTALLS += target qml desktop
+INSTALLS += target qml
+!CONFIG(sdk): INSTALLS += desktop
 
 DEFINES += DEPLOYMENT_PATH=\"\\\"\"$${SHAREDIR}/\"\\\"\"
 
