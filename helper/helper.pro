@@ -1,11 +1,11 @@
+include(../globals.pri)
+
 TEMPLATE = app
 TARGET = ambiancechanger-helper
 
 QT = core gui
 
-SOURCES += \
-    main.cpp
+SOURCES +=  main.cpp
 
-TARGETPATH = /opt/sdk/bin
-target.path = $$TARGETPATH
+target.path = $${BINDIR}
 INSTALLS += target

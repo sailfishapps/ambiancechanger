@@ -1,3 +1,5 @@
+include(../globals.pri)
+
 TEMPLATE = app
 TARGET = ambiancechanger
 
@@ -5,25 +7,23 @@ QT += core gui declarative
 
 SOURCES +=  sailfishapplication.cpp \
             main.cpp \
-    suhelper.cpp \
-    testhelper.cpp \
-    helperlauncher.cpp
+            suhelper.cpp \
+            testhelper.cpp \
+            helperlauncher.cpp
 HEADERS +=  sailfishapplication.h \
-    suhelper.h \
-    testhelper.h \
-    helperlauncher.h
+            suhelper.h \
+            testhelper.h \
+            helperlauncher.h
 
 OTHER_FILES +=  main.qml \
-    AmbianceChangerPage.qml \
-    TestPage.qml
+                TestPage.qml \
+                AmbianceChangerPage.qml
 
-TARGETPATH = /opt/sdk/bin
-target.path = $$TARGETPATH
+target.path = $${BINDIR}
 
-DEPLOYMENT_PATH = /opt/sdk/share/$$TARGET
-qml.path = $$DEPLOYMENT_PATH
+qml.path = $${SHAREDIR}
 qml.files = $${OTHER_FILES}
-desktop.path = /opt/sdk/share/applications
+desktop.path = $${APPLICATIONSDIR}
 
 contains(CONFIG, desktop) {
     DEFINES *= DESKTOP
@@ -32,7 +32,7 @@ contains(CONFIG, desktop) {
 
 INSTALLS += target qml desktop
 
-DEFINES += DEPLOYMENT_PATH=\"\\\"\"$${DEPLOYMENT_PATH}/\"\\\"\"
+DEFINES += DEPLOYMENT_PATH=\"\\\"\"$${SHAREDIR}/\"\\\"\"
 
 CONFIG += link_pkgconfig
 packagesExist(qdeclarative-boostable) {
