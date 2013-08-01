@@ -1,6 +1,6 @@
-import QtQuick 1.1
+import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtMobility.gallery 1.1
+import QtDocGallery 5.0
 import org.nemomobile.thumbnailer 1.0
 import org.SfietKonstantin.ambiancechanger 1.0
 
@@ -87,7 +87,7 @@ Page {
             }
 
             Label {
-                anchors.margins: theme.paddingMedium
+                anchors.margins: Theme.paddingMedium
                 anchors.top: preview.bottom; anchors.left: parent.left; anchors.right: parent.right
                 wrapMode: Text.WordWrap
                 text: qsTr("Warning ! This operation might damage your SDK. It will remove \

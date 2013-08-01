@@ -3,7 +3,7 @@ include(../globals.pri)
 TEMPLATE = app
 TARGET = ambiancechanger
 
-QT += core gui declarative
+QT += core gui quick qml
 
 SOURCES +=  sailfishapplication.cpp \
             main.cpp \

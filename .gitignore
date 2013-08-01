@@ -1,0 +1,5 @@
+moc_*.cpp
+*.o
+Makefile
+ambiancechanger
+ambiancechanger-helper

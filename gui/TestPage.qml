@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.SfietKonstantin.ambiancechanger 1.0
 
@@ -32,19 +32,19 @@ Page {
 
     Item {
         id: container
-        anchors.top: pageHeader.bottom; anchors.topMargin: theme.paddingMedium
+        anchors.top: pageHeader.bottom; anchors.topMargin: Theme.paddingMedium
         anchors.left: parent.left; anchors.right: parent.right; anchors.bottom: parent.bottom
 
         Column {
             id: column
             anchors.top: parent.top
-            anchors.left: parent.left; anchors.leftMargin: theme.paddingMedium
-            anchors.right: parent.right; anchors.rightMargin: theme.paddingMedium
-            spacing: theme.paddingMedium
+            anchors.left: parent.left; anchors.leftMargin: Theme.paddingMedium
+            anchors.right: parent.right; anchors.rightMargin: Theme.paddingMedium
+            spacing: Theme.paddingMedium
 
             Label {
                 id: testSudoLabel
-                anchors.margins: theme.paddingMedium
+                anchors.margins: Theme.paddingMedium
                 text: {
                     switch (testHelper.sudoTest) {
                     case TestHelper.Success:
@@ -61,13 +61,13 @@ Page {
                         break
                     }
                 }
-                color: testHelper.sudoTest == TestHelper.Success ? theme.highlightColor
-                                                                  : theme.primaryColor
+                color: testHelper.sudoTest == TestHelper.Success ? Theme.highlightColor
+                                                                  : Theme.primaryColor
             }
 
             Label {
                 id: testHelperLabel
-                anchors.margins: theme.paddingMedium
+                anchors.margins: Theme.paddingMedium
                 text: {
                     switch (testHelper.helperTest) {
                     case TestHelper.Success:
@@ -84,13 +84,13 @@ Page {
                         break
                     }
                 }
-                color: testHelper.helperTest == TestHelper.Success ? theme.highlightColor
-                                                                   : theme.primaryColor
+                color: testHelper.helperTest == TestHelper.Success ? Theme.highlightColor
+                                                                   : Theme.primaryColor
             }
 
             Label {
                 id: testSudoLaunchHelperLabel
-                anchors.margins: theme.paddingMedium
+                anchors.margins: Theme.paddingMedium
                 text: {
                     switch (testHelper.sudoHelperLaunchTest) {
                     case TestHelper.Success:
@@ -107,21 +107,21 @@ Page {
                         break
                     }
                 }
-                color: testHelper.sudoHelperLaunchTest == TestHelper.Success ? theme.highlightColor
-                                                                             : theme.primaryColor
+                color: testHelper.sudoHelperLaunchTest == TestHelper.Success ? Theme.highlightColor
+                                                                             : Theme.primaryColor
             }
         }
 
         Label {
             id: info
-            anchors.bottom: parent.bottom; anchors.bottomMargin: theme.paddingMedium
-            anchors.left: parent.left; anchors.leftMargin: theme.paddingMedium
-            anchors.right: parent.right; anchors.rightMargin: theme.paddingMedium
+            anchors.bottom: parent.bottom; anchors.bottomMargin: Theme.paddingMedium
+            anchors.left: parent.left; anchors.leftMargin: Theme.paddingMedium
+            anchors.right: parent.right; anchors.rightMargin: Theme.paddingMedium
             visible: testHelper.sudoTest == TestHelper.Failure
                      || testHelper.helperTest == TestHelper.Failure
                      || testHelper.sudoHelperLaunchTest == TestHelper.Failure
             wrapMode: Text.WordWrap
-            font.pixelSize: theme.fontSizeExtraSmall
+            font.pixelSize: Theme.fontSizeExtraSmall
             text: {
                 if (testHelper.sudoTest == TestHelper.Failure) {
                     qsTr("Please install sudo. SSH into the virtual machine, log as root, \
@@ -163,10 +163,10 @@ Be careful, you have to enable NOPASSWD, and it is recommanded to put additional
 //        delegate: BackgroundItem {
 //            width: listView.width
 //            Label {
-//                anchors.left: parent.left; anchors.leftMargin: theme.paddingLarge
+//                anchors.left: parent.left; anchors.leftMargin: Theme.paddingLarge
 //                anchors.verticalCenter: parent.verticalCenter
 //                text: model.title
-//                color: parent.down ? theme.highlightColor : theme.primaryColor
+//                color: parent.down ? Theme.highlightColor : Theme.primaryColor
 //            }
 //            onClicked: TEST_HELPER.testSudo()
 ////            onClicked: pageStack.push(Qt.resolvedUrl(page))

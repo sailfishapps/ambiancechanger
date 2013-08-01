@@ -18,6 +18,9 @@ echo "nemo ALL= NOPASSWD:/opt/sdk/bin/ambiancechanger-helper" > /etc/sudoers.d/a
 If the application complains about test not being passed, please double check if
 you have met all the previous requirements.
 
+You can also try to compile ambiancechanger using the SDK. Be sure to pass DEPLOYMENT_PREFIX=/usr/
+for qmake options, otherwise, comiling an RPM will complain. The RPM includes correct dependancies.
+
 == Using ambiance changer ==
 
 Ambiance changer is rather a dirty hack and not a beautiful application. It changes

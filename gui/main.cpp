@@ -1,8 +1,7 @@
 
-#include <QtGui/QApplication>
-#include <QtDeclarative/QDeclarativeView>
-#include <QtDeclarative/QDeclarativeContext>
-#include <QtDeclarative/qdeclarative.h>
+#include <QtGui/QGuiApplication>
+#include <QtQuick/QQuickView>
+#include <QtQml/qqml.h>
 
 #include "sailfishapplication.h"
 #include "testhelper.h"
@@ -10,11 +9,10 @@
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QScopedPointer<QApplication> app(Sailfish::createApplication(argc, argv));
-    QScopedPointer<QDeclarativeView> view(Sailfish::createUninitializedView());
+    QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
     qmlRegisterType<TestHelper>("org.SfietKonstantin.ambiancechanger", 1, 0, "TestHelper");
     qmlRegisterType<HelperLauncher>("org.SfietKonstantin.ambiancechanger", 1, 0, "HelperLauncher");
-    Sailfish::initializeView(view.data(), "main.qml");
+    QScopedPointer<QQuickView> view(Sailfish::createView("main.qml"));
     Sailfish::showView(view.data());
 
     return app->exec();

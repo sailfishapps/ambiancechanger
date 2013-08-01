@@ -15,3 +15,5 @@
 
 TEMPLATE = subdirs
 SUBDIRS = gui helper
+
+OTHER_FILES = rpm/ambiancechanger.yaml

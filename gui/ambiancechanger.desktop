@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Ambiance changer
-Icon=icon-launcher-gallery
+Icon=icon-launcher-default
 Exec=invoker --type=j -s /usr/bin/ambiancechanger
 Comment=Change ambiance in Sailfish OS SDK
-
-
